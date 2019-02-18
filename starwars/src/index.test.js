@@ -4,18 +4,24 @@ const starWarsNames = require('./starwars-names.json');
 describe('starwars-names', () => {
   describe('all', () => {
     test('should be a fulfilled array', () => {
-      expect(starWars.all).toHaveLength(starWarsNames.length)
+      expect(starWars.all).toHaveLength(starWarsNames.length)//test done 
     });
+
     test('should be an array of strings', () => {
-      throw new Error('test not yet defined... remove the throw and write your test here');
+      for(var i=0;i<starWarsNames.length;i++){
+        expect(typeof "starWarsNames[i]").toBe("string"); //test done 
+
+      }
     });
 
     test('should contain `Luke Skywalker`', () => {
-      throw new Error('test not yet defined... remove the throw and write your test here');
+      expect(starWarsNames).toEqual(expect.arrayContaining(["Luke Skywalker"]));//test done
+  
     });
 
     test('should not contain `Ben Quadinaros`', () => {
-      throw new Error('test not yet defined... remove the throw and write your test here');
+      
+      expect(starWarsNames!==["Ben Quadinaros"]).toBe(true);//test done
     });
   });
 
