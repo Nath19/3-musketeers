@@ -22,11 +22,7 @@ module.exports = {
 
 ```
 
--
 
-##### As you can see in DEFAULT_TO_CURRENCIES you can put any currency of your choices
-
--
 
 - Create a cash.js file an put this code
 
