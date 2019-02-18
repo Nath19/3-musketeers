@@ -1,6 +1,6 @@
 # 💰 Cash 💰
 
-#Your currency converter
+# Your currency converter
 
 # How to use cash ?
 
