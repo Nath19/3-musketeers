@@ -1,20 +1,12 @@
-# 💰 Cash
+# 💰 Cash 💰
 
-#How to use cash ?
+#Your currency converter
 
+# How to use cash ?
 
+## 🏃‍♀️Steps
 
-
-
-```sh
-❯ cd /path/to/workspace/3-musketeers/cash
-❯ npm i
-❯ node bin/index.js
-```
-
-##🏃‍♀️Steps
-
-* First , create a constants.js file an put this code
+- First , create a constants.js file an put this code
 
 Here is the code:
 
@@ -27,12 +19,18 @@ module.exports = {
   DEFAULT_TO_CURRENCIES
 }
 
+
 ```
 
-* Create a cash.js file an put this code
+-
+
+##### As you can see in DEFAULT_TO_CURRENCIES you can put any currency of your choices
+
+-
+
+- Create a cash.js file an put this code
 
 Here is the code:
-
 
 ```javascript
 'use strict';
@@ -43,13 +41,14 @@ const chalk = require('chalk');
 const ora = require('ora');
 const currencies = require('../lib/currencies.json');
 
+/* We import the API of the constants.js file */
 const {API} = require('./constants');
 
 const cash = async command => {
 	const {amount} = command;
 	const from = command.from.toUpperCase();
 	const to = command.to.filter(item => item !== from).map(item => item.toUpperCase());
-
+/* We add a loading constant which will generate the format of the ouput*/
 	console.log();
 	const loading = ora({
 		text: 'Converting...',
@@ -61,7 +60,11 @@ const cash = async command => {
 	});
 
 	loading.start();
-
+/*
+	*Import the API again
+	*await to wait the response
+	*the function will convert the currency in dollars USD
+*/
 	await got(API, {
 		json: true
 	}).then(response => {
@@ -93,13 +96,11 @@ module.exports = cash;
 
 ```
 
-
-* 😃 Finally , create a index.js file
+- 😃 Finally , create a index.js file
 
 Here is the code:
 
 ```javascript
-
 #!/usr/bin/env node
 
 'use strict';
@@ -144,5 +145,13 @@ cash(command);
 ```
 
 
-## Result
 
+## ✅ Result
+
+```sh
+❯ cd /path/to/workspace/3-musketeers/cash
+❯ npm i
+❯ node bin/index.js
+```
+
+![capture1](capture1.png)
